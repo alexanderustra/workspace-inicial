@@ -18,3 +18,5 @@ document.getElementById('sign-off-btn').addEventListener('click', (e) => {
     // Redireccionar a la página de inicio de sesión después de cerrar sesión
     window.location.href = './login.html';
 });
+
+const token = localStorage.getItem("token");

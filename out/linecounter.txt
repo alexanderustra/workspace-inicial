@@ -172,3 +172,226 @@ webfonts\Sansation_Light_Italic.ttf, it is a binary file.
 webfonts\Sansation_plate.jpg, it is a binary file.
 webfonts\Sansation_Regular.ttf, it is a binary file.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-11-24 08:02:03
+count workspace : c:\Users\aleus\OneDrive\Escritorio\workspace-inicial
+total files : 198
+total code lines : 14337
+total comment lines : 852
+total blank lines : 2386
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .json|           1828|              0|             14|     13|
+   |          .html|           1078|              4|             45|    7.5|
+   |            .md|             22|              4|             11|   0.15|
+   |            .js|           3479|            818|            734|     24|
+   |           .svg|           3286|              6|              0|     23|
+   |           .txt|             13|              0|              5|  0.091|
+   |           .map|              2|              0|              0|  0.014|
+   |               |              1|              0|              1| 0.0070|
+   |           .css|           4628|             20|           1576|     32|
+   -------------------------------------------------------------------------
+.gitignore, code is 1, comment is 0, blank is 1.
+app.js, code is 122, comment is 26, blank is 32.
+cart.html, code is 194, comment is 3, blank is 5.
+categories.html, code is 114, comment is 0, blank is 4.
+css\bootstrap.min.css, code is 2, comment is 6, blank is 0.
+css\bootstrap.min.css.map, code is 1, comment is 0, blank is 0.
+css\cart.css, code is 136, comment is 1, blank is 5.
+css\dropzone.css, code is 421, comment is 4, blank is 4.
+css\font-awesome.min.css, code is 3090, comment is 6, blank is 1490.
+css\login.css, code is 63, comment is 0, blank is 1.
+css\product-info.css, code is 213, comment is 2, blank is 4.
+css\products.css, code is 177, comment is 0, blank is 12.
+css\profile.css, code is 154, comment is 0, blank is 7.
+css\sign-in.css, code is 106, comment is 0, blank is 7.
+css\styles.css, code is 266, comment is 1, blank is 46.
+img\background.png, it is a binary file.
+img\car1.jpg, it is a binary file.
+img\car2.jpg, it is a binary file.
+img\car3.jpg, it is a binary file.
+img\car4.jpg, it is a binary file.
+img\cars_index.jpg, it is a binary file.
+img\cat101_1.jpg, it is a binary file.
+img\cat102_1.jpg, it is a binary file.
+img\cat103_1.jpg, it is a binary file.
+img\cat104_1.jpg, it is a binary file.
+img\cat105_1.jpg, it is a binary file.
+img\cat105_1.png, it is a binary file.
+img\cat106_1.jpg, it is a binary file.
+img\cat107_1.jpg, it is a binary file.
+img\cat108_1.jpg, it is a binary file.
+img\cat109_1.jpg, it is a binary file.
+img\cover_back.png, it is a binary file.
+img\furniture_index.jpg, it is a binary file.
+img\img_perfil.png, it is a binary file.
+img\login.png, it is a binary file.
+img\prod40281_1.jpg, it is a binary file.
+img\prod40281_2.jpg, it is a binary file.
+img\prod40281_3.jpg, it is a binary file.
+img\prod40281_4.jpg, it is a binary file.
+img\prod50741_1.jpg, it is a binary file.
+img\prod50741_2.jpg, it is a binary file.
+img\prod50741_3.jpg, it is a binary file.
+img\prod50741_4.jpg, it is a binary file.
+img\prod50742_1.jpg, it is a binary file.
+img\prod50742_2.jpg, it is a binary file.
+img\prod50742_3.jpg, it is a binary file.
+img\prod50742_4.jpg, it is a binary file.
+img\prod50743_1.jpg, it is a binary file.
+img\prod50743_2.jpg, it is a binary file.
+img\prod50743_3.jpg, it is a binary file.
+img\prod50743_4.jpg, it is a binary file.
+img\prod50744_1.jpg, it is a binary file.
+img\prod50744_2.jpg, it is a binary file.
+img\prod50744_3.jpg, it is a binary file.
+img\prod50744_4.jpg, it is a binary file.
+img\prod50921_1.jpg, it is a binary file.
+img\prod50921_2.jpg, it is a binary file.
+img\prod50921_3.jpg, it is a binary file.
+img\prod50921_4.jpg, it is a binary file.
+img\prod50921_5.jpg, it is a binary file.
+img\prod50922_1.jpg, it is a binary file.
+img\prod50922_2.jpg, it is a binary file.
+img\prod50922_3.jpg, it is a binary file.
+img\prod50922_4.jpg, it is a binary file.
+img\prod50923_1.jpg, it is a binary file.
+img\prod50923_2.jpg, it is a binary file.
+img\prod50923_3.jpg, it is a binary file.
+img\prod50923_4.jpg, it is a binary file.
+img\prod50924_1.jpg, it is a binary file.
+img\prod50924_2.jpg, it is a binary file.
+img\prod50924_3.jpg, it is a binary file.
+img\prod50924_4.jpg, it is a binary file.
+img\prod50925_1.jpg, it is a binary file.
+img\prod50925_2.jpg, it is a binary file.
+img\prod50925_3.jpg, it is a binary file.
+img\prod50925_4.jpg, it is a binary file.
+img\prod60801_1.jpg, it is a binary file.
+img\prod60801_2.jpg, it is a binary file.
+img\prod60801_3.jpg, it is a binary file.
+img\prod60801_4.jpg, it is a binary file.
+img\prod60802_1.jpg, it is a binary file.
+img\prod60802_2.jpg, it is a binary file.
+img\prod60802_3.jpg, it is a binary file.
+img\prod60802_4.jpg, it is a binary file.
+img\prod60803_1.jpg, it is a binary file.
+img\prod60803_2.jpg, it is a binary file.
+img\prod60803_3.jpg, it is a binary file.
+img\prod60803_4.jpg, it is a binary file.
+img\prod60804_1.jpg, it is a binary file.
+img\prod60804_2.jpg, it is a binary file.
+img\prod60804_3.jpg, it is a binary file.
+img\prod60804_4.jpg, it is a binary file.
+img\profile-imgs\bana.jpeg, it is a binary file.
+img\profile-imgs\option1.jpg, it is a binary file.
+img\profile-imgs\option10.jpg, it is a binary file.
+img\profile-imgs\option11.jpg, it is a binary file.
+img\profile-imgs\option12.jpg, it is a binary file.
+img\profile-imgs\option13.jpg, it is a binary file.
+img\profile-imgs\option14.jpg, it is a binary file.
+img\profile-imgs\option15.jpg, it is a binary file.
+img\profile-imgs\option2.jpg, it is a binary file.
+img\profile-imgs\option3.jpg, it is a binary file.
+img\profile-imgs\option4.jpg, it is a binary file.
+img\profile-imgs\option5.jpg, it is a binary file.
+img\profile-imgs\option6.jpg, it is a binary file.
+img\profile-imgs\option7.jpg, it is a binary file.
+img\profile-imgs\option8.jpg, it is a binary file.
+img\profile-imgs\option9.jpg, it is a binary file.
+img\toys_index.jpg, it is a binary file.
+index.html, code is 102, comment is 0, blank is 5.
+js\bootstrap.bundle.min.js, code is 1, comment is 7, blank is 0.
+js\bootstrap.bundle.min.js.map, code is 1, comment is 0, blank is 0.
+js\cart.js, code is 224, comment is 47, blank is 39.
+js\categories.js, code is 117, comment is 7, blank is 26.
+js\dark-mode.js, code is 23, comment is 5, blank is 5.
+js\dropzone.js, code is 2376, comment is 632, blank is 538.
+js\general.js, code is 14, comment is 4, blank is 4.
+js\index.js, code is 15, comment is 1, blank is 1.
+js\init.js, code is 38, comment is 0, blank is 3.
+js\login.js, code is 52, comment is 6, blank is 9.
+js\my-profile.js, code is 56, comment is 19, blank is 10.
+js\product-info.js, code is 159, comment is 16, blank is 19.
+js\products.js, code is 153, comment is 25, blank is 20.
+js\sell.js, code is 105, comment is 19, blank is 26.
+js\sign-in.js, code is 24, comment is 4, blank is 2.
+json\cart\buy.json, code is 3, comment is 0, blank is 0.
+json\cats\cat.json, code is 65, comment is 0, blank is 0.
+json\cats_products\101.json, code is 51, comment is 0, blank is 0.
+json\cats_products\102.json, code is 42, comment is 0, blank is 0.
+json\cats_products\103.json, code is 42, comment is 0, blank is 0.
+json\cats_products\104.json, code is 5, comment is 0, blank is 0.
+json\cats_products\105.json, code is 15, comment is 0, blank is 0.
+json\cats_products\106.json, code is 5, comment is 0, blank is 0.
+json\cats_products\107.json, code is 5, comment is 0, blank is 0.
+json\cats_products\108.json, code is 5, comment is 0, blank is 0.
+json\cats_products\109.json, code is 5, comment is 0, blank is 0.
+json\products\40281.json, code is 26, comment is 0, blank is 1.
+json\products\50741.json, code is 26, comment is 0, blank is 1.
+json\products\50742.json, code is 26, comment is 0, blank is 1.
+json\products\50743.json, code is 26, comment is 0, blank is 1.
+json\products\50744.json, code is 26, comment is 0, blank is 1.
+json\products\50921.json, code is 26, comment is 0, blank is 1.
+json\products\50922.json, code is 26, comment is 0, blank is 1.
+json\products\50923.json, code is 26, comment is 0, blank is 1.
+json\products\50924.json, code is 26, comment is 0, blank is 1.
+json\products\50925.json, code is 26, comment is 0, blank is 1.
+json\products\60801.json, code is 26, comment is 0, blank is 1.
+json\products\60802.json, code is 26, comment is 0, blank is 1.
+json\products\60803.json, code is 26, comment is 0, blank is 1.
+json\products\60804.json, code is 26, comment is 0, blank is 1.
+json\products_comments\40281.json, code is 1, comment is 0, blank is 0.
+json\products_comments\50741.json, code is 30, comment is 0, blank is 0.
+json\products_comments\50742.json, code is 30, comment is 0, blank is 0.
+json\products_comments\50743.json, code is 30, comment is 0, blank is 0.
+json\products_comments\50744.json, code is 30, comment is 0, blank is 0.
+json\products_comments\50921.json, code is 30, comment is 0, blank is 0.
+json\products_comments\50922.json, code is 23, comment is 0, blank is 0.
+json\products_comments\50923.json, code is 23, comment is 0, blank is 0.
+json\products_comments\50924.json, code is 9, comment is 0, blank is 0.
+json\products_comments\50925.json, code is 1, comment is 0, blank is 0.
+json\products_comments\60801.json, code is 9, comment is 0, blank is 0.
+json\products_comments\60802.json, code is 16, comment is 0, blank is 0.
+json\products_comments\60803.json, code is 9, comment is 0, blank is 0.
+json\products_comments\60804.json, code is 1, comment is 0, blank is 0.
+json\sell\publish.json, code is 3, comment is 0, blank is 0.
+json\user_cart\25801.json, code is 13, comment is 0, blank is 0.
+login.html, code is 81, comment is 1, blank is 5.
+my-profile.html, code is 88, comment is 0, blank is 4.
+package-lock.json, code is 943, comment is 0, blank is 0.
+package.json, code is 20, comment is 0, blank is 0.
+product-info.html, code is 95, comment is 0, blank is 9.
+products.html, code is 92, comment is 0, blank is 4.
+README.md, code is 22, comment is 4, blank is 11.
+sell.html, code is 238, comment is 0, blank is 5.
+sign-in.html, code is 74, comment is 0, blank is 4.
+webfonts\fa-brands-400.eot, it is a binary file.
+webfonts\fa-brands-400.svg, code is 926, comment is 2, blank is 0.
+webfonts\fa-brands-400.ttf, it is a binary file.
+webfonts\fa-brands-400.woff, it is a binary file.
+webfonts\fa-brands-400.woff2, it is a binary file.
+webfonts\fa-regular-400.eot, it is a binary file.
+webfonts\fa-regular-400.svg, code is 332, comment is 2, blank is 0.
+webfonts\fa-regular-400.ttf, it is a binary file.
+webfonts\fa-regular-400.woff, it is a binary file.
+webfonts\fa-regular-400.woff2, it is a binary file.
+webfonts\fa-solid-900.eot, it is a binary file.
+webfonts\fa-solid-900.svg, code is 2028, comment is 2, blank is 0.
+webfonts\fa-solid-900.ttf, it is a binary file.
+webfonts\fa-solid-900.woff, it is a binary file.
+webfonts\fa-solid-900.woff2, it is a binary file.
+webfonts\Sansation_1.31_ReadMe.txt, code is 13, comment is 0, blank is 5.
+webfonts\Sansation_Bold.ttf, it is a binary file.
+webfonts\Sansation_Bold_Italic.ttf, it is a binary file.
+webfonts\Sansation_Italic.ttf, it is a binary file.
+webfonts\Sansation_Light.ttf, it is a binary file.
+webfonts\Sansation_Light_Italic.ttf, it is a binary file.
+webfonts\Sansation_plate.jpg, it is a binary file.
+webfonts\Sansation_Regular.ttf, it is a binary file.
+===============================================================================

@@ -77,8 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
 
     }
-
     setProfile()
-
     document.getElementById('edit-profile-btn').addEventListener('click',editProfile);
 });

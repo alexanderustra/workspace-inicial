@@ -1,66 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let cart = JSON.parse(localStorage.getItem("cartArray"));
+  const token = localStorage.getItem('token');
+  const headers = {
+    'Content-Type': 'application/json',
+    'access-token': token
+  };
 
   //--------------------------- añadiendo productos desde el local storage ---------------------------//
-  function generateCart(cart) {
+  function generateCart() {
     // por las dudas no tocar xd
-    generateProduct(cart);
+    generateProduct();
   }
 
-  function generateProduct(cart) {
-    cart.forEach((product) => {
-      fetch(`https://japceibal.github.io/emercado-api/products/${product}.json`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.currency === "UYU") {
-            let dolar = data.cost / 40;
-            data.cost = dolar;
-            data.currency = "USD";
-          }
+  function generateProduct() {
+    fetch(`http://localhost:3000/carrito`, {
+      headers: headers,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        data.articles.forEach((article) => {
+          console.log(article)
           const li = document.createElement("li");
           li.classList.add("conteinerProduct");
           li.classList.add("conteinerProduct-cart");
           li.innerHTML = `
-                  <div class="card">
-                      <img src="${data.images[0]}" class="card-img-top" alt="${data.name}">
-  
-                      <div class="card-body">
-                      <h5 class="card-title">${data.name}</h5>
-                      <p class="card-text">${data.cost} ${data.currency}</p>
-                      
-                      <p class="card-text"${data.soldCount}</p>
-                      <input type='number' placeholder='1' min= '1' class='amount-inp'/>
-                      <h2 style = "color:  #222222; font-size: 20px"> Total : <span class='total-amount'> ${data.cost} </span>${data.currency}</h2>
-                      <a href="#" class="btn btn-primary cart delete-btns" product-id='${product}' id = 'add-to-cart'> <span class="material-symbols-outlined">
-                      delete
-                       </span></a>
-                      </div>
-                  </div>
-                  `;
+                    <div class="card">
+                        <img src="${article.image}" class="card-img-top" alt="${article.name}">
+    
+                        <div class="card-body">
+                        <h5 class="card-title">${article.name}</h5>
+                        <p class="card-text">${article.unitCost} ${article.currency}</p>
+                        
+                        <p class="card-text">${article.soldCount} Vendidos</p>
+                        <input type='number' placeholder='1' min='1' class='amount-inp'/>
+                        <h2 style="color:  #222222; font-size: 20px"> Total : <span class='total-amount'> ${article.unitCost} </span>${article.currency}</h2>
+                        <a href="#" class="btn btn-primary cart delete-btns" product-id='${article.id}' id='add-to-cart'>
+                          <span class="material-symbols-outlined">delete</span>
+                        </a>
+                        </div>
+                    </div>
+                    `;
           document.getElementById("container").appendChild(li);
-
           //----------------------Eliminando productos del carrito----------------------/
-          deleteProduct(li);
-                             // ------------- total costo ---------------------/
-          totalCost(li, data);
-        })
-        .catch((error) => console.log(error));
-    });
+          deleteProduct(li, article.id);
+          // ------------- total costo ---------------------/
+          totalCost(li, article);
+        });
+      })
+      .catch((error) => console.log(error));
   }
 
-  //---------------- Mostrando el costo total según cantidad de productos ---------------//
-  function totalCost(li, data) {
+  function totalCost(li, article) {
     let amountInput = li.querySelector(".amount-inp");
     let totalAmountSpan = li.querySelector(".total-amount");
-    totalAmountSpan.innerHTML = data.cost;
+    totalAmountSpan.innerHTML = article.unitCost;
     amountInput.addEventListener("input", () => {
       let amount = parseInt(amountInput.value, 10);
-      let totalAmount = data.cost * amount;
+      let totalAmount = article.unitCost * amount;
       if (isNaN(totalAmount)) {
-        totalAmount = data.cost;
+        totalAmount = article.unitCost;
       }
       totalAmountSpan.textContent = `${totalAmount}`;
-      updateTotal(); 
+      updateTotal();
     });
   }
 
@@ -122,40 +122,40 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTotal(); 
   
 
-  function deleteProduct(li) {
-    let deleteBtns = document.querySelectorAll(".delete-btns");
-    deleteBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        btn.closest(".conteinerProduct").remove();
-        let productId = btn.getAttribute("product-id"); // Convertir a número
-        let index = cart.indexOf(productId);
-        //arreglaaaooo fuaaaaa loco AAAAAAAAAAAAAA
-        if (index !== -1) {
-          cart.splice(index, 1);
-          localStorage.setItem("cartArray", JSON.stringify(cart));
-          li.remove();
-        }
+    function deleteProduct(li, productId) {
+      let deleteBtn = li.querySelector(".delete-btns");
+      deleteBtn.addEventListener("click", () => {
+        li.remove();
+        fetch(`http://localhost:3000/eliminar-del-carrito/${productId}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'access-token': token
+          }
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Error al eliminar el producto del carrito: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('eliminao paaa')
+            console.log(data.message);
+            // Puedes realizar acciones adicionales después de eliminar con éxito, si es necesario
+          })
+          .catch(error => {
+            console.error('Error al eliminar el producto del carrito:', error);
+          });
       });
-    });
-  }
-
+    }
+  
                   //-------------------GENERANDO CARRITO -----------------//
 
-  //------------------------------Trayendo productos desde la API------------------------------//
-
-  fetch("https://japceibal.github.io/emercado-api/user_cart/25801.json")
-    .then((response) => response.json())
-    .then((data) => {
-      data.articles.forEach((product) => {
-        let productIdToAdd = `${product.id}`;
-        if (!cart.includes(productIdToAdd)) {
-          cart.push(productIdToAdd);
-        }
-        generateCart(cart);
-      });
-    });
-
   //---------------------- Formularios y validaciones ------------------------//
+
+          // ----------------- Limpiar Carrito ------------------ //
+
 
           // ----------------- Limpiar Carrito ------------------ //
 /*
@@ -177,6 +177,10 @@ function hideModal(modalId) {
   const modal = new bootstrap.Modal(document.getElementById(modalId));
   modal.hide();
   document.getElementById(modalId).style.display = 'none';
+
+  const backdrop = document.querySelector('.modal-backdrop');
+  backdrop.remove()
+  location.reload()
 }
 
 // Función para mostrar un mensaje de éxito temporal
@@ -263,7 +267,6 @@ function handleSubmitBankAccountButtonClick() {
     //miloco
     document.getElementById('myModal').style.display = 'none';
     showSuccessMessage(document.querySelector("#success-message"));
-    crearCart(cart)
   } else {
     showErrorMessage(document.querySelector("#error-message"));
   }
@@ -275,4 +278,6 @@ document.getElementById("close-modal").addEventListener("click", () => hideModal
 document.getElementById("submitCreditCard").addEventListener("click", handleSubmitCreditCardButtonClick);
 document.getElementById("wire-transfer").addEventListener("click", handleWireTransferButtonClick);
 document.getElementById("submitBankAccount").addEventListener("click", handleSubmitBankAccountButtonClick);
+
+generateCart()
 });

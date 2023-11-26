@@ -28,3 +28,6 @@ se recarga la página, los objetos del usuario desaparecen.
 
 # Mati entero wn
 
+# Entrega 8
+
+- modificar carrito para traer desde el json

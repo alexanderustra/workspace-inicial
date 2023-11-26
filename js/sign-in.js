@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // se guardan los datos que el usuario colocó en el registro para luego usarlos en su perfil.
             localStorage.setItem('user-data', userData);
             localStorage.setItem('nombreUsuario',userData[0])
-            window.location.href = './index.html';
+            window.location.href = './login.html';
           }
     });
 });

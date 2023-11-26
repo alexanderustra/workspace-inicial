@@ -1,9 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   // catID se guarda al dar click en una categoría.
   let endPoint = localStorage.getItem("catID");
-  const url = `https://japceibal.github.io/emercado-api/cats_products/${endPoint}.json`;
+  const url = `./json/cats_products/${endPoint}.json`;
+  const token = localStorage.getItem('token')
+  console.log(localStorage.getItem('token'))
 
-  fetch(url)
+  const headers = {
+    'Content-Type': 'application/json',
+    'access-token' : token
+  }
+
+  fetch(url,{
+    headers: headers
+  })
     .then((response) => response.json())
     .then((data) => {
       const productsList = document.getElementById("container");
@@ -150,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //---------------------------------añadiendo al carrito sin entrar al producto----------------------------------//
 
-      let cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
+      //let cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
       const addBtns = document.querySelectorAll(".cart");
 
       addBtns.forEach((addBtn) => {
@@ -160,13 +169,64 @@ document.addEventListener("DOMContentLoaded", () => {
           const idOfList = addBtn
             .closest(".conteinerProduct")
             .getAttribute("list-id");
-          cartArray.push(idOfList);
-          localStorage.setItem("cartArray", JSON.stringify(cartArray));
-          alert("Producto Añadido");
-        });
+          //cartArray.push(idOfList);
+          //localStorage.setItem("cartArray", JSON.stringify(cartArray));
+          //alert("Producto Añadido");
+          //console.log(cartArray)
+          
+
+
+              fetch(`./json/products/${idOfList}.json`,
+                  {
+                    headers: headers,
+                  })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.currency === "UYU") {
+                  let dolar = data.cost / 40;
+                  data.cost = dolar;
+                  data.currency = "USD";
+                }
+                console.log(data)
+
+                //---------------- Añadiendo al json ------------------- //
+                // Suponiendo que ya tienes el objeto del producto que deseas agregar al carrito
+                 // console.log('CARRO '+ cart)
+                 
+                  // Realizar la solicitud fetch para agregar el producto al carrito
+                  
+                  fetch('http://localhost:3000/agregar-al-carrito', {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({  
+                      name: data.name,
+                      soldCount: data.soldCount,
+                      count: 1,
+                      unitCost: data.cost,
+                      image: data.images[0] ,
+                      id: data.id,
+                      currency: "USD"
+                    }),
+                  })
+                    .then((response) => response.json())
+                    .then((result) => {
+                      console.log('Headers:', headers);
+                      console.log(result.message);
+                      alert('Producto Agregado Correctamente')
+                    })
+                    .catch((error) => {
+                      console.error('Error al realizar la solicitud fetch:', error);
+                      console.log('Response Status:', error.response.status);
+                      console.log('Response Text:', error.response.text());
+                    });
+                   
+              })
+              .catch((error) => console.log(error));
+            });
       });
     })
     .catch((error) => console.error("Error fetching data:", error));
+    
 
   //FILTRO POR RANGO DE PRECIO.
   document.getElementById("filter-btn").addEventListener("click", function () {

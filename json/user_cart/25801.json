@@ -1,0 +1,14 @@
+{
+  "user": 25801,
+  "articles": [
+    {
+      "name": "Bugatti Chiron",
+      "soldCount": 0,
+      "count": 1,
+      "unitCost": 3500000,
+      "image": "img/prod50925_1.jpg",
+      "id": 50925,
+      "currency": "USD"
+    }
+  ]
+}

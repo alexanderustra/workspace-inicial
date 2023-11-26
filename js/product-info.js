@@ -3,12 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logueado === 'false' || logueado === null) {
         window.location.href = '../login.html';
     }
-    document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
 
+    const token = localStorage.getItem('token')
+    console.log(localStorage.getItem('token'))
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'access-token' : token
+    }
+
+
+    document.getElementById('perfil-a').textContent = localStorage.getItem('nombreUsuario');
     //---------------------------------consiguiendo el producto-----------------------------//
     let productId = localStorage.getItem('productID');
-    let urlPoducto = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
-    fetch(urlPoducto)
+    let urlPoducto = `./json/products/${productId}.json`;
+    fetch(urlPoducto,{
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Content-Type': 'application/json',
+        }
+      })
     .then(response => response.json())
     .then(data => { 
         console.log(data)
@@ -98,14 +112,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 location.reload()
             }
         });
-
-        //------------------------- Cargando productos al carrito ---------------------------//
-        let cartArray = JSON.parse(localStorage.getItem('cartArray')) || []
-        document.getElementById('add-to-cart').addEventListener('click',()=>{
-            alert('Producto Agregado')
-                cartArray.push(data.id)
-                localStorage.setItem('cartArray',JSON.stringify(cartArray))
-        })
+        //----------------------- Agregando al carrito ----------------//
+        const addToCart = () => {
+            // Construct the request body with the product details
+            const cartProduct = {
+                name: data.name,
+                soldCount: data.soldCount,
+                count: 1,
+                unitCost: data.cost,
+                image: data.images[0],
+                id: data.id,
+                currency: "USD"
+            };
+            // Make a POST request to add the product to the cart
+            fetch('http://localhost:3000/agregar-al-carrito', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(cartProduct),
+            })
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result.message);
+                alert('Producto Agregado Correctamente');
+            })
+            .catch((error) => {
+                console.error('Error al realizar la solicitud fetch:', error);
+                console.log('Response Status:', error.response.status);
+                console.log('Response Text:', error.response.text());
+            });
+        };
+        
+        // Event listener for the "Añadir al carrito" button
+        document.getElementById('add-to-cart').addEventListener('click', addToCart);
 
         //quitar pantalla de carga
         document.getElementById('loading-screen').style.display = 'none';

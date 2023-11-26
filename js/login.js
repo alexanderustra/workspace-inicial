@@ -22,11 +22,37 @@ document.addEventListener('DOMContentLoaded',()=>{
             
             logueado = true;
             localStorage.setItem('logueado', 'true');
-            window.location.href = './index.html';
         }
         else {
             alert('datos incorectos')
         }
+
+        //LOGIN 
+
+        const data = {
+            username: userNameInput.value,
+            password : passwordInput.value
+          };
+    
+          fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              console.log(data.token)
+              localStorage.setItem('token', data.token);
+              document.getElementById('modal-container').style.display = 'none';
+              generateTasks();
+            })
+            .catch(error => {
+              console.error(error);
+            });
+      window.location.href = './index.html';
     })
     // no permite cambiar de pestaña si no se loguea primero.
     let listaMenu = document.querySelectorAll('.nav-link');

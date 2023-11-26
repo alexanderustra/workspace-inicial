@@ -1,10 +1,10 @@
-const CATEGORIES_URL = "https://japceibal.github.io/emercado-api/cats/cat.json";
-const PUBLISH_PRODUCT_URL = "https://japceibal.github.io/emercado-api/sell/publish.json";
-const PRODUCTS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
-const PRODUCT_INFO_URL = "https://japceibal.github.io/emercado-api/products/";
-const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/products_comments/";
-const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
-const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
+const CATEGORIES_URL = "./json/cats/";
+const PUBLISH_PRODUCT_URL = "./json/sell/publish.json";
+const PRODUCTS_URL = "./json/cat_products/";
+const PRODUCT_INFO_URL = "./json/products/";
+const PRODUCT_INFO_COMMENTS_URL = "./json/products_comments/";
+const CART_INFO_URL = "./json/user_cart/25801.json";
+const CART_BUY_URL = "./json/cart/buy.json";
 const EXT_TYPE = ".json";
 
 let showSpinner = function(){

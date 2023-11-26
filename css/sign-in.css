@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'sansation';
     src: url('../webfonts/Sansation_Bold.ttf') format('truetype');
@@ -110,4 +111,5 @@ img {
 
 body.dark-mode .profile-data {
     color: rgb(15, 15, 15);
-    }
+
+ }
